@@ -72,7 +72,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(script);
         // Chạy lệnh tạo bảng.
         String userScript = "CREATE TABLE " + TABLE_USER + "("
-                + COLUMN_ID_USER + " INTEGER PRIMARY KEY,"
+                + COLUMN_ID_USER + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_EMAIL + " TEXT,"
                 + COLUMN_PASS + " TEXT"
                 + ")";
@@ -94,7 +94,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         //contentValues.put("id_user", id_user);
-        contentValues.put(COLUMN_ID_USER, user.getId_user());
+//        contentValues.put(COLUMN_ID_USER, user.getId_user()); //ID tự động tăng -> ko cần thêm trường ID
         contentValues.put(COLUMN_EMAIL, user.getEmail());
         contentValues.put(COLUMN_PASS, user.getPassword());
         sqLiteDatabase.insert(TABLE_USER, null, contentValues);

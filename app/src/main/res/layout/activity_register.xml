@@ -61,6 +61,16 @@
             android:id="@+id/buttondk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+        <Button
+            android:text="Đăng nhập"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:padding="15dp"
+            android:backgroundTint="@color/colorLogo"
+            android:textColor="@color/darkness"
+            android:id="@+id/buttonDN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </LinearLayout>

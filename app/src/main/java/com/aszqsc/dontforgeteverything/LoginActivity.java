@@ -35,11 +35,11 @@ public class LoginActivity extends AppCompatActivity {
                 Boolean checkEmailPassword = sqLiteDatabase.emailPassword(email, password);
                 if(checkEmailPassword){
                     Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                    Intent MainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(MainIntent);
                 }else{
                     Toast.makeText(getApplicationContext(), "Sai email hoặc password.", Toast.LENGTH_SHORT).show();
                 }
-                Intent MainIntent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(MainIntent);
             }
         });
 

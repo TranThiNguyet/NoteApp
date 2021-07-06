@@ -15,7 +15,7 @@ import com.aszqsc.dontforgeteverything.model.User;
 public class RegisterActivity extends AppCompatActivity {
     MyDatabaseHelper sqLiteDatabase;
     EditText editEmail, editPass, editCfPass;
-    Button btnRegister;
+    Button btnRegister, btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
         editPass = (EditText) findViewById(R.id.edtmk);
         editCfPass = (EditText) findViewById(R.id.edtcfmk);
         btnRegister = (Button) findViewById(R.id.buttondk);
+        btnLogin = (Button) findViewById(R.id.buttonDN);
 //        btnRegister.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -34,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
 //            }
 //        });
         btnRegister.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 String s1 = editEmail.getText().toString();
@@ -54,9 +54,18 @@ public class RegisterActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(getApplicationContext(), "Email đã tồn tại. Vui lòng nhập lại", Toast.LENGTH_SHORT).show();
                         }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Password không trùng khớp. vui lòng nhập lại.", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(getApplicationContext(), "Password không trùng khớp. vui lòng nhập lại.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(i);
             }
         });
     }
